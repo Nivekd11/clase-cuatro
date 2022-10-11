@@ -1,0 +1,20 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <label for="">Email:</label>
+    <input type="text" id="email" name="email" formControlName="email">
+    <label *ngIf="form.get('email')?.errors && form.get('email')?.touched && form.get('email')?.dirty">Error</label>
+    <br>
+    <label for="">{{form.get('name')?.hasError('minlength')}}</label>
+    <label for="">Name:</label>
+    <input type="text" id="name" name="name" formControlName="name">
+    <label *ngIf="form.get('name')?.errors && form.get('name')?.touched && form.get('name')?.dirty">Error</label>
+    <br>
+    <label for="">Contraseña:</label>
+    <input type="text" id="password" name="password" formControlName="password">
+    <label *ngIf="form.get('password')?.errors && form.get('password')?.touched && form.get('password')?.dirty">Error</label>
+    <br>
+    <label for="">Telefono:</label>
+    <input type="text" id="telefono" name="telefono" formControlName="telefono">
+    <label for="">{{form.get("telefono")?.errors | json}}</label>
+    <br>
+    <button type="submit" [disabled]="form.invalid && form.dirty">Click</button>
+</form>
